@@ -1,4 +1,44 @@
 .articulo
     min-width: 100%
     min-height: 100%
-    background-color: grey
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    .sub
+        width: 80%
+        height: 80%
+        .back
+            margin: 40px 0px
+            display: flex
+            justify-content: baseline
+            i
+                margin-left: 50px
+                margin-right: 50px
+        .articulodata
+            margin: 0px 50px
+            display: flex
+            justify-content: flex-start
+            flex-wrap: nowrap
+            flex-direction: column
+            .precio
+                font-weight: 700
+                font-size: 2.2rem
+            p
+                margin: 10px 0px
+        .foto
+            margin: 50px 0px
+            display: flex
+            justify-content: center
+            align-items: center
+            img
+                max-width: 60%
+        .features
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-wrap: wrap
+            font-size: 0.6rem
+            .entrada
+                min-width: 50%
+            .dato
+                font-weight: 700
