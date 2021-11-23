@@ -26,20 +26,15 @@ export class FormcompraComponent implements OnInit {
     */
     this.forma = this._fb.group({
       email:[null,[]],
-      bank : this._fb.group({
-        ncard:[null,[]],
-        monthyearexp:[null,[]],
-        secode:[null,[]],
-        propietary:[null,[]]
-      }),
+      ncard:[null,[]],
+      monthyearexp:[null,[]],
+      secode:[null,[]],
+      propietary:[null,[]],
       country:[null,[]],
       zip:[null,[]],
     })
   }
-
-
-
-  ngOnInit(): void {
-  }
+  
+  ngOnInit(): void {}
 
 }
