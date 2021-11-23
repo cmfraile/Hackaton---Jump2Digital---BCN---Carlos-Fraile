@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ArticuloComponent } from './componentes/articulo/articulo.component';
 import { FormcompraComponent } from './componentes/formcompra/formcompra.component';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path:"",component:AppComponent}
@@ -17,7 +18,9 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

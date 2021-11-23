@@ -1,3 +1,24 @@
 <div class="formcompra">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo laboriosam odit eligendi quos vero dicta minus dolorum ad impedit atque consequuntur praesentium, porro quam iste, distinctio a architecto cumque. Nesciunt, deserunt iure! Totam illo esse consequatur, eaque rem nemo! Id eligendi aperiam, officia nobis facere esse suscipit ex consequatur consectetur.
+    <div class="applepay">Apple pay ipsum dolor</div>
+    <div class="tarjetadiv" ><p>O paga con tarjeta</p></div>
+    <div class="formulario">
+        <form [formGroup]="forma">
+            
+            <div class="correoform"><label for="email">Correo electrónico</label><input type="text" formControlName="email"></div>
+            
+            <div class="tarjetaform">
+                <label for="">numero de tarjeta</label><input type="number" formControlName="bank.ncard">
+                <input type="number" class="sub" formControlName="bank.monthyearexp">
+                <input type="number" class="sub" formControlName="bank.secode">
+                <label for="email">Titular de la tarjeta</label><input type="text" formControlName="bank.propietary">
+            </div>
+
+            <div class="countryzipform">
+                <label for="email">País</label><input type="text" formControlName="country">
+                <label for="email">Código postal</label><input type="text" formControlName="zip">
+            </div>
+            
+
+        </form>
+    </div>
 </div>
