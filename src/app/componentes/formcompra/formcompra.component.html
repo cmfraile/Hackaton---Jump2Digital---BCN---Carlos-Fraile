@@ -16,7 +16,7 @@
             <div class="countryzipform">
                 <div class="item">
                     <label for="country">País<img class="minimg" src="{{bandera}}"></label>
-                    <select formControlName="country" #t (change)="returnflag(t.value)" class="f6"><option *ngFor="let x of countrydata" value="{{x.nombre}}">{{x.nombre}}</option></select>
+                    <select formControlName="country" #t (change)="returnflag(t.value)" class="f6"><option class="opt" *ngFor="let x of countrydata" value="{{x.nombre}}">{{x.nombre}}</option></select>
                 </div>
                 <div class="item"><label for="zip">Código postal</label><input type="text" class="czright f7" formControlName="zip"></div>
             </div>

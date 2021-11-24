@@ -14,7 +14,8 @@ export class CountriesRESTService {
       let arraynuevo:any[] = [];
       for(let con of resp){
         arraynuevo.push({nombre : con.name.common , bandera : con.flags.svg})
-      }
+      };
+      arraynuevo.sort((a:any,b:any) => {if(a.nombre < b.nombre){return -1}else{return 1}});
       return arraynuevo;
     })
   )
