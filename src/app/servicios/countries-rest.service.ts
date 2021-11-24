@@ -1,6 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map , tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +8,17 @@ import { map , tap } from 'rxjs/operators';
 export class CountriesRESTService {
 
   baseURL:string = 'https://restcountries.com/v3.1/';
+
+  countryendpoint = this._hc.get(`${this.baseURL}/all`).pipe(
+    map((resp:any) => {
+      let arraynuevo:any[] = [];
+      for(let con of resp){
+        arraynuevo.push({nombre : con.name.common , bandera : con.flags.svg})
+      }
+      return arraynuevo;
+    })
+  )
   
-  constructor( private _hc:HttpClient ){
-    this._hc.get(`${this.baseURL}/all`).pipe(
-      map((resp:any) => {
-        let arraynuevo:any[] = [];
-        for(let con of resp){
-          arraynuevo.push({nombre : con.name.common , bandera : con.flags.svg})
-        }
-        return arraynuevo;
-      })
-    ).subscribe(console.log);
-  }
+  constructor( private _hc:HttpClient ){}
+
 }

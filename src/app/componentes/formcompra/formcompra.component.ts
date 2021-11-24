@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CountriesRESTService } from 'src/app/servicios/countries-rest.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-formcompra',
@@ -10,21 +11,9 @@ import { CountriesRESTService } from 'src/app/servicios/countries-rest.service';
 export class FormcompraComponent implements OnInit {
 
   forma!:FormGroup;
+  countrydata!:any[];
   
   constructor( private _fb:FormBuilder , private _cr:CountriesRESTService ){
-    /*
-    this.forma = this._fb.group({
-      email:[null,Validators.required,Validators.email],
-      bank : this._fb.group({
-        ncard:[Number,[Validators.required]],
-        monthyearexp:[Number,[Validators.required]],
-        secode:[Number,[Validators.required]],
-        propietary:[null,[Validators.required]]
-      }),
-      country:[null,[Validators.required]],
-      zip:[Number,[Validators.required]],
-    })
-    */
     this.forma = this._fb.group({
       email:[null,[]],
       ncard:[null,[]],
@@ -33,7 +22,8 @@ export class FormcompraComponent implements OnInit {
       propietary:[null,[]],
       country:[null,[]],
       zip:[null,[]],
-    })
+    });
+    this._cr.countryendpoint.pipe(tap(console.log)).subscribe(resp => this.countrydata = resp);
   }
 
   ngOnInit(): void {}
