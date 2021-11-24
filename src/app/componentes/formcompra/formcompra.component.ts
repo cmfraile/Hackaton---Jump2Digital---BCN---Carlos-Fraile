@@ -12,6 +12,7 @@ export class FormcompraComponent implements OnInit {
 
   forma!:FormGroup;
   countrydata!:any[];
+  bandera!:string;
   
   constructor( private _fb:FormBuilder , private _cr:CountriesRESTService ){
     this.forma = this._fb.group({
@@ -24,6 +25,12 @@ export class FormcompraComponent implements OnInit {
       zip:[null,[]],
     });
     this._cr.countryendpoint.pipe(tap(console.log)).subscribe(resp => this.countrydata = resp);
+  }
+
+  returnflag(pais:string):void{
+    this.countrydata.forEach(x => {
+      if(x.nombre == pais){this.bandera = x.bandera}
+    });
   }
 
   ngOnInit(): void {}

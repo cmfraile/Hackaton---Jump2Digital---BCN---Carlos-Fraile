@@ -14,11 +14,13 @@
             </div>
 
             <div class="countryzipform">
-                <div class="item"><label for="country">País</label><input type="text" class="czleft"  formControlName="country"></div>
+                <div class="item">
+                    <label for="country">País<img class="minimg" src="{{bandera}}"></label>
+                    <select formControlName="country" #t (change)="returnflag(t.value)"><option *ngFor="let x of countrydata" value="{{x.nombre}}" style="background-color: red;">{{x.nombre}}</option></select>
+                </div>
                 <div class="item"><label for="zip">Código postal</label><input type="text" class="czright" formControlName="zip"></div>
             </div>
             
-
         </form>
     </div>
 </div>
