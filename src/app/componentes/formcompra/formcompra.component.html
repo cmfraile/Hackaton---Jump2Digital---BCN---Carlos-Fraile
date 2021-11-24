@@ -1,24 +1,24 @@
 <div class="formcompra">
-    <div class="applepay">Apple pay ipsum dolor</div>
-    <div class="tarjetadiv" ><p>O paga con tarjeta</p></div>
+    <div class="applepay"><button><i class="fab fa-apple-pay"></i></button></div>
+    <div class="tarjetadiv"><p>O paga con tarjeta</p></div>
     <div class="formulario">
         <form [formGroup]="forma">
             
-            <div class="correoform"><label for="email">Correo electrónico</label><input type="text" formControlName="email"></div>
+            <div class="correoform"><label for="email">Correo electrónico</label><input type="text" formControlName="email" class="f1"></div>
 
             <div class="tarjetaform">
-                <label for="">Datos bancarios</label><input class="ncard" type="text" formControlName="ncard" placeholder="número de tarjeta" >
-                <input type="text" class="sub nmye" formControlName="monthyearexp" placeholder="fecha de expiracion" >
-                <input type="text" class="sub nsecode" formControlName="secode" placeholder="código de seguridad" >
-                <input type="text" class="titular" formControlName="propietary" placeholder="titular de la tarjeta" >
+                <label for="ncard">Datos bancarios</label><input class="ncard f2" type="text" formControlName="ncard" placeholder="número de tarjeta">
+                <input type="text" class="sub nmye f3" formControlName="monthyearexp" placeholder="fecha de expiracion">
+                <input type="text" class="sub nsecode f4" formControlName="secode" placeholder="código de seguridad">
+                <input type="text" class="titular f5" formControlName="propietary" placeholder="titular de la tarjeta">
             </div>
 
             <div class="countryzipform">
                 <div class="item">
                     <label for="country">País<img class="minimg" src="{{bandera}}"></label>
-                    <select formControlName="country" #t (change)="returnflag(t.value)"><option *ngFor="let x of countrydata" value="{{x.nombre}}">{{x.nombre}}</option></select>
+                    <select formControlName="country" #t (change)="returnflag(t.value)" class="f6"><option *ngFor="let x of countrydata" value="{{x.nombre}}">{{x.nombre}}</option></select>
                 </div>
-                <div class="item"><label for="zip">Código postal</label><input type="text" class="czright" formControlName="zip"></div>
+                <div class="item"><label for="zip">Código postal</label><input type="text" class="czright f7" formControlName="zip"></div>
             </div>
 
             <div class="payform">

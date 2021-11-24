@@ -1,16 +1,36 @@
 .formcompra
+    padding: 15% 0px
     min-width: 100%
     min-height: 100%
     box-shadow: -12px 0px 10px -13px rgba(0,0,0,0.3)
+    display: flex
+    justify-content: flex-start
+    flex-direction: column
+    flex-wrap: nowrap
+    .applepay
+        display: flex
+        justify-content: center
+        align-items: center
+        button
+            border-radius: 5px
+            min-width: 75%
+            max-width: 75%
+            padding: 5px 0px
+            border: none
+            background-color: black
+            i
+                color: white
+                font-size: 2.5rem
     .tarjetadiv
         display: flex
-        text-align: baseline
+        justify-content: center
+        margin: 20px 0px
     .formulario
         display: flex
         justify-content: center
         align-items: center
         form
-            max-width: 80%
+            max-width: 75%
         label,input
             min-width: 100%
         label
@@ -26,7 +46,7 @@
             justify-content: flex-start
             flex-wrap: wrap
             flex-direction: row
-            margin: 50px 0px
+            margin: 20px 0px
             .ncard
                 border-top-left-radius: 5px
                 border-top-right-radius: 5px
@@ -67,7 +87,7 @@
                 max-width: 50%
             .minimg
                 max-height: 10px
-                margin: 0px 12px
+                margin: 2px 12px
             .czleft
                 border: 2px solid black
                 border-right: none
@@ -79,8 +99,8 @@
                 border-top-right-radius: 5px
                 border-bottom-right-radius: 5px
         .payform
+            margin-top: 50px
             button
-                margin-top: 50px
                 border-radius: 5px
                 min-width: 100%
                 padding: 10px
@@ -88,5 +108,14 @@
                 background-color: black
                 font-weight: 700
                 font-size: 1.2rem
-
-    
+.f1,.f2,.f3,.f4,.f5,.f6,.f7
+    border-color: grey !important
+    &:focus
+        border-color: black
+.f3
+    &:focus
+        border-right: 2px solid black !important
+        border-radius: 5px !important
+.f5
+    border: 2px solid grey !important
+    border-radius: 5px
