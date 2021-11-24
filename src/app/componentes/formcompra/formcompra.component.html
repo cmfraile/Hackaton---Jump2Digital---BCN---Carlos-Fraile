@@ -16,9 +16,13 @@
             <div class="countryzipform">
                 <div class="item">
                     <label for="country">País<img class="minimg" src="{{bandera}}"></label>
-                    <select formControlName="country" #t (change)="returnflag(t.value)"><option *ngFor="let x of countrydata" value="{{x.nombre}}" style="background-color: red;">{{x.nombre}}</option></select>
+                    <select formControlName="country" #t (change)="returnflag(t.value)"><option *ngFor="let x of countrydata" value="{{x.nombre}}">{{x.nombre}}</option></select>
                 </div>
                 <div class="item"><label for="zip">Código postal</label><input type="text" class="czright" formControlName="zip"></div>
+            </div>
+
+            <div class="payform">
+                <button [ngStyle]="{'color':(this.forma.valid) ? 'white' : 'darkgrey'}" >Pagar 899.00 $</button>
             </div>
             
         </form>
