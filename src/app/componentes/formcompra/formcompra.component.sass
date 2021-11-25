@@ -1,5 +1,5 @@
 .formcompra
-    padding: 15% 0px
+    padding-top: 15%
     min-width: 100%
     min-height: 100%
     box-shadow: -12px 0px 10px -13px rgba(0,0,0,0.3)
@@ -60,11 +60,13 @@
                 border-left: 2px solid black
                 border-bottom: 2px solid black
                 border-right: 1px solid grey
+                max-width: 50%
             .nsecode
                 border-bottom-right-radius: 5px
                 border: none
                 border-bottom: 2px solid black
                 border-right: 2px solid black
+                max-width: 50%
             .titular
                 margin: 10px 0px
             .sub
@@ -72,7 +74,7 @@
         .countryzipform
             display: flex
             flex-direction: row
-            flex-wrap: nowrap
+            flex-wrap: wrap
             justify-content: space-between
             max-width: 100%
             select
@@ -84,6 +86,7 @@
                 border-right: none
                 background-color: white
             .item
+                max-width: 50%
                 min-width: 50%
             .minimg
                 max-height: 10px
@@ -109,7 +112,7 @@
                 font-weight: 700
                 font-size: 1.2rem
     .pbr
-        margin: 50px 0px
+        margin-top: 50px !important
         display: none
         justify-content: center
         align-items: baseline
@@ -135,5 +138,27 @@
     border-radius: 5px
 
 @media (max-width: 1280px)
+    *
+        font-size: 1.5rem
+    i
+        font-size: 3rem !important
+    .formcompra
+        margin: -10vh 0px !important
     .pbr
         display: flex !important
+
+@media (max-width: 900px)
+    .countryzipform
+        .item,select
+            min-width: 100% !important
+    .tarjetaform
+        .nmye,.nsecode,.ncard
+            min-width: 100% !important
+            border: 2px solid grey !important
+            border-radius: 0px !important
+        .ncard
+            border-radius: 5px 5px 0px 0px !important
+        .nsecode
+            border-radius: 0px 0px 5px 5px !important
+
+
