@@ -20,10 +20,10 @@ export class FormcompraComponent implements OnInit {
       email:[null,[Validators.email,Validators.required]],
       ncard:[null,[Validators.minLength(16),Validators.maxLength(16)]],
       monthyearexp:[null,[Validators.minLength(4),Validators.maxLength(4),Validators.required]],
-      secode:[null,[Validators.minLength(4),Validators.maxLength(4),Validators.required]],
-      propietary:[null,[Validators.minLength(10),Validators.required]],
+      secode:[null,[Validators.minLength(3),Validators.maxLength(3),Validators.required]],
+      propietary:[null,[Validators.minLength(5),Validators.required]],
       country:[null,[Validators.required]],
-      zip:[null,[Validators.minLength(5),Validators.maxLength(5)]],
+      zip:[null,[Validators.minLength(5),Validators.maxLength(5),Validators.required]],
     });
     this._cr.countryendpoint.pipe(tap(console.log)).subscribe(resp => this.countrydata = resp);
   }
@@ -35,7 +35,7 @@ export class FormcompraComponent implements OnInit {
   }
 
   checkform(){
-    console.log(this.forma);
+    console.log(this.forma,this.forma.valid);
   }
 
   ngOnInit(): void {}
