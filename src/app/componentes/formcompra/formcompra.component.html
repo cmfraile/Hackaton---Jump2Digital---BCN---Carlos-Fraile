@@ -4,13 +4,13 @@
     <div class="formulario">
         <form [formGroup]="forma">
             
-            <div class="correoform"><label for="email">Correo electrónico</label><input type="text" formControlName="email" class="f1"></div>
+            <div class="correoform"><label for="email">Correo electrónico</label><input [ngClass]="{'f1':true,'error':(primererror && this.forma.controls.email.invalid) ? true : null}" type="text" formControlName="email"></div>
 
             <div class="tarjetaform">
-                <label for="ncard">Datos bancarios</label><input class="ncard f2" type="text" formControlName="ncard" placeholder="número de tarjeta">
-                <input type="text" class="sub nmye f3" formControlName="monthyearexp" placeholder="fecha de expiracion">
-                <input type="text" class="sub nsecode f4" formControlName="secode" placeholder="código de seguridad">
-                <input type="text" class="titular f5" formControlName="propietary" placeholder="titular de la tarjeta">
+                <label for="ncard">Datos bancarios</label><input [ngClass]="{'ncard f2':true,'error':(primererror && this.forma.controls.ncard.invalid) ? true : null}" type="number" formControlName="ncard" placeholder="número de tarjeta">
+                <input type="number" [ngClass]="{'sub nmye f3':true,'error':(primererror && this.forma.controls.ncard.invalid) ? true : null}" formControlName="monthyearexp" placeholder="fecha de expiracion">
+                <input type="number" [ngClass]="{'sub nsecode f4':true,'error':(primererror && this.forma.controls.ncard.invalid) ? true : null}" formControlName="secode" placeholder="código de seguridad">
+                <input type="text" [ngClass]="{'titular f5':true,'error':(primererror && this.forma.controls.ncard.invalid) ? true : null}" formControlName="propietary" placeholder="titular de la tarjeta">
             </div>
 
             <div class="countryzipform">
@@ -22,14 +22,14 @@
             </div>
 
             <div class="errores" [ngStyle]="{'display':(primererror) ? 'none' : null}" >
-                <p><i class="fas fa-at"></i>El correo no es correcto</p>
-                <p><i class="fas fa-money-check-alt"></i>Los datos bancarios no son correctos</p>
-                <p><i class="fas fa-globe"></i>No ha seleccionado ningun país</p>
-                <p><i class="far fa-envelope"></i>No ha introducido ningun código postal</p>
+                <p *ngIf="this.forma.controls.email.invalid"><i class="fas fa-at"></i>El correo no es correcto</p>
+                <p *ngIf="this.forma.controls.creditcard.invalid"><i class="fas fa-money-check-alt"></i>Los datos bancarios no son correctos</p>
+                <p *ngIf="this.forma.controls.country.invalid"><i class="fas fa-globe"></i>No ha seleccionado ningun país</p>
+                <p *ngIf="this.forma.controls.zip.invalid"><i class="far fa-envelope"></i>No ha introducido ningun código postal</p>
             </div>
 
             <div class="payform">
-                <button [ngStyle]="{'color':(this.forma.valid) ? 'white' : 'darkgrey'}" (click)="checkform()">Pagar 899.00 $</button>
+                <button [ngStyle]="{'color':(this.forma.valid) ? 'white' : 'darkgrey'}" (click)="checkform()" [disabled]="this.forma.invalid" >Pagar 899.00 $</button>
             </div>
             
         </form>

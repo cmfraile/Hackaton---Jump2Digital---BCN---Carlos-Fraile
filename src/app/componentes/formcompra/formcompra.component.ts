@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { CountriesRESTService } from 'src/app/servicios/countries-rest.service';
 import { tap } from 'rxjs/operators';
 
@@ -24,7 +24,7 @@ export class FormcompraComponent implements OnInit {
       propietary:[null,[Validators.minLength(5),Validators.required]],
       country:[null,[Validators.required]],
       zip:[null,[Validators.minLength(5),Validators.maxLength(5),Validators.required]],
-    });
+    },{creditcard:[null,[this.tarjeta(),Validators.required]]});
     this._cr.countryendpoint.pipe(tap(console.log)).subscribe(resp => this.countrydata = resp);
   }
 
@@ -40,4 +40,28 @@ export class FormcompraComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  tarjeta():ValidatorFn{
+    return (control:AbstractControl):ValidationErrors | null => {
+      if(this.forma.controls.ncard.valid && this.forma.controls.monthyearexp.valid && this.forma.controls.secode.valid && this.forma.controls.propietary.valid){ return null }else{return {tarjetamal:true}}
+    }
+  }
+
 }
+
+/*
+valid: This property returns true if the element’s contents are valid and false otherwise.
+invalid: This property returns true if the element’s contents are invalid and false otherwise.
+pristine: This property returns true if the element’s contents have not been changed.
+dirty: This property returns true if the element’s contents have been changed.
+untouched: This property returns true if the user has not visited the element.
+touched: This property returns true if the user has visited the element.
+*/
+
+/*
+export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const forbidden = nameRe.test(control.value);
+    return forbidden ? {forbiddenName: {value: control.value}} : null;
+  };
+}
+*/
