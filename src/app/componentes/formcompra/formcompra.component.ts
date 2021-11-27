@@ -18,13 +18,12 @@ export class FormcompraComponent implements OnInit {
   constructor( private _fb:FormBuilder , private _cr:CountriesRESTService ){
     this.forma = this._fb.group({
       email:[null,[Validators.email,Validators.required]],
-      ncard:[null,[Validators.minLength(16),Validators.maxLength(16)]],
+      ncard:[null,[Validators.minLength(16),Validators.maxLength(16),Validators.required]],
       monthyearexp:[null,[Validators.minLength(4),Validators.maxLength(4),Validators.required]],
       secode:[null,[Validators.minLength(3),Validators.maxLength(3),Validators.required]],
       propietary:[null,[Validators.minLength(5),Validators.required]],
       country:[null,[Validators.required]],
       zip:[null,[Validators.minLength(5),Validators.maxLength(5),Validators.required]],
-      creditcard:[null,this.tarjeta]
     });
     this._cr.countryendpoint.pipe(tap(console.log)).subscribe(resp => this.countrydata = resp);
   }
@@ -36,18 +35,11 @@ export class FormcompraComponent implements OnInit {
   }
 
   checkform(){
-    console.log(this.forma.controls);
+    this.primererror = true;
+    console.log(this.forma);
   }
 
-  ngOnInit(): void {
-    console.log(this.forma.get('creditcard')?.valid);
-  }
-
-  tarjeta():ValidatorFn{
-    return (control:AbstractControl):ValidationErrors | null => {
-      if(this.forma.get('ncard')?.valid && this.forma.get('monthyearexp')?.valid && this.forma.get('secode')?.valid && this.forma.get('propietary')?.valid){ return null }else{return {tarjetamal:true}}
-    }
-  }
+  ngOnInit(): void {}
 
 }
 

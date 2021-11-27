@@ -4,24 +4,24 @@
     <div class="formulario">
         <form [formGroup]="forma">
             
-            <div class="correoform"><label for="email">Correo electrónico</label><input [ngClass]="{'f1':true,'error':true}" type="text" formControlName="email"></div>
+            <div class="correoform"><label for="email">Correo electrónico</label><input [ngClass]="{'f1':true,'error':primererror && this.forma.controls.email.invalid}" type="text" formControlName="email"></div>
 
             <div class="tarjetaform">
-                <label for="ncard">Datos bancarios</label><input [ngClass]="{'ncard f2':true,'error':true}" type="number" formControlName="ncard" placeholder="número de tarjeta">
-                <input type="number" [ngClass]="{'sub nmye f3':true,'error':true}" formControlName="monthyearexp" placeholder="fecha de expiracion">
-                <input type="number" [ngClass]="{'sub nsecode f4':true,'error':true}" formControlName="secode" placeholder="código de seguridad">
-                <input type="text" [ngClass]="{'titular f5':true,'error':true}" formControlName="propietary" placeholder="titular de la tarjeta">
+                <label for="ncard">Datos bancarios</label><input [ngClass]="{'ncard f2':true,'error':primererror && this.forma.controls.ncard.invalid}" type="number" formControlName="ncard" placeholder="número de tarjeta">
+                <input type="number" [ngClass]="{'sub nmye f3':true,'error':primererror && this.forma.controls.monthyearexp.invalid}" formControlName="monthyearexp" placeholder="fecha de expiracion">
+                <input type="number" [ngClass]="{'sub nsecode f4':true,'error':primererror && this.forma.controls.secode.invalid}" formControlName="secode" placeholder="código de seguridad">
+                <input type="text" [ngClass]="{'titular f5':true,'error':primererror && this.forma.controls.propietary.invalid}" formControlName="propietary" placeholder="titular de la tarjeta">
             </div>
 
             <div class="countryzipform">
                 <div class="item">
                     <label for="country">País<img class="minimg" src="{{bandera}}"></label>
-                    <select formControlName="country" #t (change)="returnflag(t.value)" class="f6"><option class="opt" *ngFor="let x of countrydata" value="{{x.nombre}}">{{x.nombre}}</option></select>
+                    <select formControlName="country" #t (change)="returnflag(t.value)" [ngClass]="{'f6':true,'error':primererror && this.forma.controls.country.invalid}"><option class="opt" class="opt" *ngFor="let x of countrydata" value="{{x.nombre}}">{{x.nombre}}</option></select>
                 </div>
-                <div class="item"><label for="zip">Código postal</label><input type="text" class="czright f7" formControlName="zip"></div>
+                <div class="item"><label for="zip">Código postal</label><input type="text" [ngClass]="{'czright f7':true,'error':primererror && this.forma.controls.zip.invalid}" formControlName="zip"></div>
             </div>
 
-            <div class="errores" *ngIf="!primererror" >
+            <div class="errores" *ngIf="primererror" >
                 <p *ngIf="forma.get('email')?.invalid"><i class="fas fa-at"></i>El correo no es correcto</p>
                 <p *ngIf="forma.get('creditcard')?.invalid"><i class="fas fa-money-check-alt"></i>Los datos bancarios no son correctos</p>
                 <p *ngIf="forma.get('country')?.invalid"><i class="fas fa-globe"></i>No ha seleccionado ningun país</p>
