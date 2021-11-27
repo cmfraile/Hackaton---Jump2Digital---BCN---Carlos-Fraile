@@ -10,8 +10,13 @@ El framework empleado para realizar este proyecto es Angular. Como tecnologias m
 
 ### Como usar el repositorio : 
 
-Al ser un proyecto de Angular, deberas tener en tu PC el CLI de Angular, para poder usarlo te recomiendo seguir su [propia documentacion](https://angular.io/cli) . Si quieres ir al grano y tienes instalado NPM pues ejecuta `npm install -g @angular/cli`.
-Tras ello, la forma mas rápida de desplegar un servidor de pruebas es en la raíz del proyecto, usando el comando `ng serve`
+- Para instalar las dependencias, ejecuta `npm install` en la raiz del repositorio clonado.
+- Al ser un proyecto de Angular, deberas tener en tu PC el CLI de Angular, para poder usarlo te recomiendo seguir su [propia documentacion](https://angular.io/cli) . Si quieres ir al grano y tienes instalado NPM pues ejecuta `npm install -g @angular/cli`.
+Tras ello, la forma mas rápida de desplegar un servidor de pruebas es en la raíz del proyecto, usando el comando `ng serve`.
+
+### Organización de ficheros : 
+
+Tras instalar las dependencias, el proyecto tendra la forma de un proyecto de angular al uso, siendo la carpeta `src` donde se aloja el proyecto en si.
 
 
 
