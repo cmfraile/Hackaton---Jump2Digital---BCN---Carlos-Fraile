@@ -21,8 +21,15 @@
                 <div class="item"><label for="zip">Código postal</label><input type="text" class="czright f7" formControlName="zip"></div>
             </div>
 
+            <div class="errores" [ngStyle]="{'display':(primererror) ? 'none' : null}" >
+                <p><i class="fas fa-at"></i>El correo no es correcto</p>
+                <p><i class="fas fa-money-check-alt"></i>Los datos bancarios no son correctos</p>
+                <p><i class="fas fa-globe"></i>No ha seleccionado ningun país</p>
+                <p><i class="far fa-envelope"></i>No ha introducido ningun código postal</p>
+            </div>
+
             <div class="payform">
-                <button [ngStyle]="{'color':(this.forma.valid) ? 'white' : 'darkgrey'}" >Pagar 899.00 $</button>
+                <button [ngStyle]="{'color':(this.forma.valid) ? 'white' : 'darkgrey'}" (click)="checkform()">Pagar 899.00 $</button>
             </div>
             
         </form>

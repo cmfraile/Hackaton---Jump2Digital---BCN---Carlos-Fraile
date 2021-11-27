@@ -13,16 +13,17 @@ export class FormcompraComponent implements OnInit {
   forma!:FormGroup;
   countrydata!:any[];
   bandera!:string;
+  primererror = false
   
   constructor( private _fb:FormBuilder , private _cr:CountriesRESTService ){
     this.forma = this._fb.group({
-      email:[null,[]],
-      ncard:[null,[]],
-      monthyearexp:[null,[]],
-      secode:[null,[]],
-      propietary:[null,[]],
-      country:[null,[]],
-      zip:[null,[]],
+      email:[null,[Validators.email,Validators.required]],
+      ncard:[null,[Validators.minLength(16),Validators.maxLength(16)]],
+      monthyearexp:[null,[Validators.minLength(4),Validators.maxLength(4),Validators.required]],
+      secode:[null,[Validators.minLength(4),Validators.maxLength(4),Validators.required]],
+      propietary:[null,[Validators.minLength(10),Validators.required]],
+      country:[null,[Validators.required]],
+      zip:[null,[Validators.minLength(5),Validators.maxLength(5)]],
     });
     this._cr.countryendpoint.pipe(tap(console.log)).subscribe(resp => this.countrydata = resp);
   }
@@ -31,6 +32,10 @@ export class FormcompraComponent implements OnInit {
     this.countrydata.forEach(x => {
       if(x.nombre == pais){this.bandera = x.bandera}
     });
+  }
+
+  checkform(){
+    console.log(this.forma);
   }
 
   ngOnInit(): void {}
