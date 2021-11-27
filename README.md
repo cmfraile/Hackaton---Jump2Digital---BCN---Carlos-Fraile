@@ -10,5 +10,8 @@ El framework empleado para realizar este proyecto es Angular. Como tecnologias m
 
 ### Como usar el repositorio : 
 
-Al ser un proyecto de Angular, deberas tener en tu PC el CLI de Angular, para poder
+Al ser un proyecto de Angular, deberas tener en tu PC el CLI de Angular, para poder usarlo te recomiendo seguir su [propia documentacion](https://angular.io/cli) . Si quieres ir al grano y tienes instalado NPM pues ejecuta `npm install -g @angular/cli`.
+Tras ello, la forma mas rápida de desplegar un servidor de pruebas es en la raíz del proyecto, usando el comando `ng serve`
+
+
 
