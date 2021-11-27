@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators';
 })
 export class FormcompraComponent implements OnInit {
 
-  forma!:FormGroup;
+  public forma:FormGroup;
   countrydata!:any[];
   bandera!:string;
   primererror = false
@@ -24,7 +24,8 @@ export class FormcompraComponent implements OnInit {
       propietary:[null,[Validators.minLength(5),Validators.required]],
       country:[null,[Validators.required]],
       zip:[null,[Validators.minLength(5),Validators.maxLength(5),Validators.required]],
-    },{creditcard:[null,[this.tarjeta(),Validators.required]]});
+      creditcard:[null,this.tarjeta]
+    });
     this._cr.countryendpoint.pipe(tap(console.log)).subscribe(resp => this.countrydata = resp);
   }
 
@@ -35,14 +36,16 @@ export class FormcompraComponent implements OnInit {
   }
 
   checkform(){
-    console.log(this.forma,this.forma.valid);
+    console.log(this.forma.controls);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.forma.get('creditcard')?.valid);
+  }
 
   tarjeta():ValidatorFn{
     return (control:AbstractControl):ValidationErrors | null => {
-      if(this.forma.controls.ncard.valid && this.forma.controls.monthyearexp.valid && this.forma.controls.secode.valid && this.forma.controls.propietary.valid){ return null }else{return {tarjetamal:true}}
+      if(this.forma.get('ncard')?.valid && this.forma.get('monthyearexp')?.valid && this.forma.get('secode')?.valid && this.forma.get('propietary')?.valid){ return null }else{return {tarjetamal:true}}
     }
   }
 
