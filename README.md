@@ -6,7 +6,7 @@ En este pequeño proyecto realizamos un pequeño frontend para una pasarela de p
 
 ### Tecnologias empleadas : 
 
-El framework empleado para realizar este proyecto es Angular. Como tecnologias menores empleadas hacemos uso del Módulo de formularios reactivos y HTTPClient de ángular y yconsumimos la API [RESTcountries](https://restcountries.com/) para en el formulario poder seleccionar un país de una lista, así como colocar la bandera en el formulario.
+El framework empleado para realizar este proyecto es Angular. Como tecnologias menores empleadas hacemos uso del Módulo de formularios reactivos y HTTPClient de ángular y yconsumimos la API [RESTcountries](https://restcountries.com/) para en el formulario poder seleccionar un país de una lista, así como colocar la bandera en el formulario. Finalmente, empleamos [Angular-cli-ghpages](https://www.npmjs.com/package/angular-cli-ghpages) para hacer el deploy.
 
 ### Como usar el repositorio : 
 
